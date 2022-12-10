@@ -6,6 +6,7 @@ $Parameters = @{
 	ReadAccess = "RD"
 	NoAccess = "COMM"
 }
+Add-NTFSAccess -Path "C:\Users\Administrateur\Desktop\Commercial" -Account "Commercial" -AccessRights FullControl
 New-SmbShare @Parameters
 #-----------------------------------------------------------------#
 $Parameters = @{

@@ -18,7 +18,8 @@
 #	-PostalCode :				int					code postal
 #	-Enabled :					bool				si le compte est activé
 #	-Path :						
-$users = Import-Csv -Path .\AD\db\users.csv
+$path = ".\db\users.csv"
+$users = Import-Csv -Path $path
 $users | % {
     New-ADUser `
         -Name $($_.FirstName + " " + $_.LastName) `

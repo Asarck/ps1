@@ -1,4 +1,5 @@
-$OUS = Import-Csv -Path ou.csv
+$path = ".\db\ou.csv"
+$OUS = Import-Csv -Path $path
 $OUS | % {
    New-ADOrganizationalUnit `
       -DisplayName $_.name`
