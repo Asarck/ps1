@@ -29,6 +29,7 @@ $users | % {
         -DisplayName $($_.FirstName + " " + $_.LastName) `
         -UserPrincipalName $($_.FirstName[0]+ $_.LastName+"@cesi.local") `
         -SamAccountName $($_.FirstName[0] + $_.LastName) `
+        -ChangePasswordAtLogon $True `
         -AccountPassword $(ConvertTo-SecureString "Ach@nger35" -AsPlainText -Force) `
 		-Path $("CN=users,DC=cesi,DC=local") `
         -Enabled $True
