@@ -1,10 +1,11 @@
-$folders = Import-Csv .\db\ou.csv
+$folders = Import-Csv .\db\folders.csv
 $folders | %{
-	if (-not(ls $("c:\"+$_.ou))){
-		mkdir $("c:\"+$_.ou)
-		New-SmbShare -Path $("c:\"+$_.ou) -FullAccess "CESI\alede"
-		New-PSDrive -Name $_.psdrive -Root $("\\SERVADDS.cesi.local\"+$_.ou) -PSProvider FileSystem -Persist -Credential "Administrateur@it-connect.local"
-		Add-NTFSAccess -Path $("c:\"+$_.ou) -Account $_.ou -AccessRights FullControl
+	if (-not(ls "c:\" -Name "$ou")){
+		$ou = $_.ou
+		$A = $_.psdrive
+		mkdir "c:\$ou"
+		New-SmbShare -name $ou -Path "c:\$ou" -FullAccess "CESI\alede"
+		New-PSDrive -Name $ou -Root "\\SRVADDS.cesi.local\$ou" -PSProvider FileSystem -Persist
+		New-SmbGlobalMapping -LocalPath $("$A"+":") -RemotePath "\\LAB-DC1\$ou" -FullAccess "CESI\$ou" -Persistent $true
 	}
 }
-# $folder = "\\SERVADDS"

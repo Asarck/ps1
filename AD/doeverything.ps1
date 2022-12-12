@@ -1,3 +1,4 @@
+Install-Module NTFSSecurity
 .\pswd.ps1
 .\addOU.ps1
 .\adcsvuser.ps1

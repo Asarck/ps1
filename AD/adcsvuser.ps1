@@ -27,9 +27,10 @@ $users | % {
         -Surname $_.LastName `
         -Department $_.Department `
         -DisplayName $($_.FirstName + " " + $_.LastName) `
-        -UserPrincipalName $($_.FirstName + " " + $_.LastName) `
+        -UserPrincipalName $($_.FirstName[0]+ $_.LastName+"@cesi.local") `
         -SamAccountName $($_.FirstName[0] + $_.LastName) `
         -AccountPassword $(ConvertTo-SecureString "Ach@nger35" -AsPlainText -Force) `
-		-Path $("OU="+$_.Path+",DC=cesi,DC=local") `
+		-Path $("CN=users,DC=cesi,DC=local") `
         -Enabled $True
+    Add-adgroupmember -identity $_.Path -Members $($_.FirstName[0]+ $_.LastName+"@cesi.local")
 }
