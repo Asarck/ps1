@@ -10,7 +10,7 @@
 # 	-MaxPasswordAge :						Le mot de passe n'expire jamais
 # 	-ProtectedFromAccidentalDeletion :		L'objet PSO est protégé contre les suppressions accidentelles
 Set-ADDefaultDomainPasswordPolicy  `
-	-MinPasswordLength 12 `
+	-MinPasswordLength 10 `
 	-PasswordHistoryCount 24  `
 	-ReversibleEncryptionEnabled $false `
 	-ComplexityEnabled $true  `
