@@ -33,5 +33,5 @@ $users | % {
         -AccountPassword $(ConvertTo-SecureString "Ach@nger35" -AsPlainText -Force) `
 		-Path $("CN=users,DC=cesi,DC=local") `
         -Enabled $True
-    Add-adgroupmember -identity $_.Path -Members $($_.FirstName[0]+ $_.LastName+"@cesi.local")
+    Add-adgroupmember -identity $_.Path -Members $($_.FirstName[0]+ $_.LastName)
 }
