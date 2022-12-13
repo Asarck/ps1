@@ -24,3 +24,18 @@
 - IIS 
 
 
+# Livrable 3:
+- Sensi
+  - Sécu  MALO
+  - save  ESTA
+- doc :
+  - AD  LULU
+  - PF  ESTE
+  - VPN MALO
+  - Monitoring  ALEX
+- Maintenance
+  - Monitoring  ALEX
+  - Gestion des risques ESTEBAN
+- Amélioration  LULU
+  - Adds 2
+  - serv backup

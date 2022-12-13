@@ -9,10 +9,7 @@
 # 	-MinPasswordAge :						Le mot de passe doit être conservé au minimum 1 jour
 # 	-MaxPasswordAge :						Le mot de passe n'expire jamais
 # 	-ProtectedFromAccidentalDeletion :		L'objet PSO est protégé contre les suppressions accidentelles
-New-ADFineGrainedPasswordPolicy  `
-	-Name "PSO_Abstergo" `
-	-DisplayName "PSO_Abstergo"  `
-	-Precedence 10 `
+Set-ADDefaultDomainPasswordPolicy  `
 	-MinPasswordLength 12 `
 	-PasswordHistoryCount 24  `
 	-ReversibleEncryptionEnabled $false `
@@ -22,4 +19,4 @@ New-ADFineGrainedPasswordPolicy  `
 	-LockoutDuration "0.00:01:00" `
 	-MinPasswordAge "1.00:00:00"  `
 	-MaxPasswordAge "120.00:00:00" `
-	-ProtectedFromAccidentalDeletion $true
+	-Identity $(Get-ADDomain).name
